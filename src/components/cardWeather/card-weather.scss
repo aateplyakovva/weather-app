@@ -1,0 +1,40 @@
+@use "../../scss/" as *;
+
+.weather-container{
+    background-color: $card-bg;
+    padding: 24pt 14pt;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    
+    .day{
+        font-weight: 600;
+        color: #4793ff;
+        font-size: 25px;
+    }
+
+    .city{
+        font-weight: 600;
+        font-size: 25px;
+    }
+    .temp-container{
+        @include flex(center, flex-start);
+        font-weight: 600;
+        font-size: 25px;
+
+        img {
+            margin-right: 5px;
+            width: 80px;
+        }
+    }
+    .feel{
+        text-transform: capitalize;
+        font-weight: 600;
+    }
+
+    .other-data{
+        border-left:3px solid $main-color;
+        margin-top: 10pt;
+        padding-left: 6pt;
+    }
+}

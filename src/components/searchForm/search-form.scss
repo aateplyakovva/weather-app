@@ -1,0 +1,30 @@
+@use "../../scss/" as *;
+
+
+.search {
+
+    width: 100%;
+
+      .search-input {
+            @include flex(inherit, center);
+            position: relative;
+            width: 100%;
+            input {
+                border: none;
+                padding: $five-px $ten-px;
+                width: 100%;
+                border-radius: $five-px 0 0 $five-px;
+            }
+            .search-btn {
+                cursor: pointer;
+                border-radius: 0 $five-px $five-px 0;
+                padding: 0 $ten-px; 
+                height: 2rem;
+                width: 90px;
+                border: none;
+                background-color: $main-color;
+                color: #fff;
+                font-size: 15px;
+            }
+    }
+}

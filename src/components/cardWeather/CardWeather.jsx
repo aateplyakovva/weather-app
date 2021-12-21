@@ -5,12 +5,11 @@ import moment from 'moment';
 
 const CardWeather = () => {
     const {state} = useContext(Context)
-
     return (
         <div className="container">
             { state.city &&
             <div className="weather-container">
-                <p className="day">{moment().format("MMM Do YYYY, h:mm a")} </p>
+                <h3 className="day">{moment().format("MMM Do YYYY, h:mm a")} </h3>
                 <p className="city">{state.city}, {state.country}</p>
                 <div className="temp-container">
                     <img src={state.img} alt="weather img"/>

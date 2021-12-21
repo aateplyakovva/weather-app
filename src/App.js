@@ -4,7 +4,8 @@ import Header from './components/header/Header';
 import Main from './components/Main/Main';
 import Footer from './components/footer/Footer';
 import {Context} from './contex';
-import {API_KEY, API_BASE_URL} from '../src/apis/config';
+
+import * as Api from "./apis/weatherApi";
 
 function App() {
 
@@ -19,9 +20,11 @@ function App() {
       humidity: undefined,
       pressure: undefined,
       visibility: undefined,
+      hourlyForecast: [],
       error: undefined
     }
   );
+
 
 const getWeather = async (e) => {
   e.preventDefault();
@@ -30,20 +33,24 @@ const getWeather = async (e) => {
 
   if(city){
     
-  const apiUrl = await fetch(`${API_BASE_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`);
-  const data = await apiUrl.json();
-
+    const data = await Api.getWeatherBasedOnLocation(city);
+    const forecastRes = await Api.getForecast(
+      data.coord.lat,
+      data.coord.lon
+      );
     setState( 
       {
           city: data.name,
           country: data.sys.country,
-          img: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+          img: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
           temp: data.main.temp,
           feel: data.main.feels_like,
           descr: data.weather[0].description,
           humidity: data.main.humidity,
           pressure: data.main.pressure,
           visibility: data.visibility,
+          hourlyForecast: forecastRes.hourly,
+          dt: data.dt,
           error: undefined
     });
   }else {
@@ -58,14 +65,20 @@ const getWeather = async (e) => {
             humidity: undefined,
             pressure: undefined,
             visibility: undefined,
+            dt: undefined,
+            hourlyForecast: [],
             error: "Please enter a valid value"
       });
   }
 }
+
+const hourlyForecast = state.hourlyForecast;
+
   return (
     <Context.Provider value={{
       getWeather,
-      state
+      state, 
+      hourlyForecast
     }}>
         <div>
           <Header />

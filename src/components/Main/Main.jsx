@@ -12,7 +12,6 @@ const Main = () => {
           <Forecast/>
           <WeatherGrapth/>
           <WeatherMap/>
-
         </div>
     )
 }

@@ -42,6 +42,8 @@ const getWeather = async (e) => {
       {
           city: data.name,
           country: data.sys.country,
+          lat: data.coord.lat,
+          lon: data.coord.lon,
           img: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
           temp: data.main.temp,
           feel: data.main.feels_like,

@@ -21,5 +21,5 @@ const apiClient = axios.create({
       )
       .then((res) => res.data);
   };
-  
+
   export { getWeatherBasedOnLocation, getForecast };

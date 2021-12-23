@@ -1,10 +1,10 @@
 @use "../../scss/" as *;
 
 .forecast {
-    background-color: #fff;
+    background-color: $card-bg;
     border-radius: 20px;
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
-    padding: 24pt 14pt 0 14pt;
+    padding: 22pt 14pt;
     width: 537px;
   
     &__title {

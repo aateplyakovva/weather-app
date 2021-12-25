@@ -21,6 +21,7 @@ function App() {
       pressure: undefined,
       visibility: undefined,
       hourlyForecast: [],
+      dailyForecast: [],
       error: undefined
     }
   );
@@ -52,6 +53,7 @@ const getWeather = async (e) => {
           pressure: data.main.pressure,
           visibility: data.visibility,
           hourlyForecast: forecastRes.hourly,
+          dailyForecast: forecastRes.daily,
           dt: data.dt,
           error: undefined
     });
@@ -69,18 +71,21 @@ const getWeather = async (e) => {
             visibility: undefined,
             dt: undefined,
             hourlyForecast: [],
+            dailyForecast: [],
             error: "Please enter a valid value"
       });
   }
 }
 
 const hourlyForecast = state.hourlyForecast;
+const dailyForecast = state.dailyForecast;
 
   return (
     <Context.Provider value={{
       getWeather,
       state, 
-      hourlyForecast
+      hourlyForecast,
+      dailyForecast
     }}>
         <div>
           <Header />

@@ -2,7 +2,7 @@ import React from 'react';
 import CardWeather from '../cardWeather/CardWeather';
 import WeatherMap from '../cardWeatherMap/WeatherMap';
 import Forecast from '../forecast/Forecast';
-import WeatherGrapth from '../weatherGrapth/WeatherGrapth';
+import WeatherGrapth from '../weatherGraph/WeatherGraph';
 import './main.scss';
 
 const Main = () => {

@@ -15,7 +15,7 @@ const WeatherGrapth = () => {
     useEffect(() => {
         const day = [];
         const temp =[];
-        const items = dailyForecast.map((d) => {
+        dailyForecast.forEach((d) => {
         const unixTimestamp = d.dt;
         const getTemp = Math.round(d.temp.day)
         let getDay = new Date(unixTimestamp * 1000).getDate();

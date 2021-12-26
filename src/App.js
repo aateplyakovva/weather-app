@@ -85,7 +85,7 @@ const dailyForecast = state.dailyForecast;
       getWeather,
       state, 
       hourlyForecast,
-      dailyForecast
+      dailyForecast, 
     }}>
         <div>
           <Header />

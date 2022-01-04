@@ -1,11 +1,12 @@
 @use "../../scss/" as *;
 
 .forecast {
-    background-color: $card-bg;
+    background-color: var(--container-background-color);
     border-radius: 20px;
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
     padding: 22pt 14pt;
     width: 537px;
+    color: var(--font-color);
   
     &__title {
       margin-left: 15px;
@@ -14,6 +15,7 @@
     }
   
      .items {
+
       display: flex;
       overflow-x:scroll;
 
@@ -34,6 +36,7 @@
     }
   
     &-item {
+
       display: flex;
       border-right: 1px solid #eaeaea;
       padding: 15px;
@@ -52,13 +55,13 @@
   
       &__time, &__description {
         font-weight: 400;
-        color: #888;
+        color: var( --font-color);
         text-align: center;
       }
   
       &__temp {
         font-weight: 600;
-        color: #000;
+        color: var( --font-color);
       }
     }
   }

@@ -27,7 +27,7 @@ body{
   background-color: rgb(73, 122, 122);
   font-weight: 400;
   line-height: 1.5;
-  background-color: $body-bg;
+  background-color: var(--background-color);
   overflow-x: hidden;
 }
 

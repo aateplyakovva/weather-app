@@ -2,7 +2,7 @@
 
 .main-container {
     max-width: 900px;
-    background-color: $body-bg;
+    background-color: var(--background-color);
     margin: 24pt auto;
     display: grid; 
     grid-template-columns: 2fr 3fr; 

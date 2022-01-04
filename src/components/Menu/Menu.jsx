@@ -6,8 +6,7 @@ const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
         <div className="buttons-container">
-            <button>Change Theme</button>
-            <button>Change Language</button>
+
         </div>
     </StyledMenu>
   )

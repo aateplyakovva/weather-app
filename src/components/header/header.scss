@@ -2,18 +2,35 @@
 
 
 .header-container{
-    background-color: #f2f2f2;
+    background-color: var(--header-background-color);
     width: 100%;
 
     .controls-container{
         max-width: 900px;
         margin: auto;
-        padding     : 20pt 0;
-        align-items: flex-start;
+        padding: 20pt 0;
         @include flex(center, center);
 
         .controls{
-            @include flex(center, flex-end)
+            display: flex;
+            flex-direction: column;
+            margin-left: 2rem;
+
+            .change-theme {
+                font-family: $font-family;
+                font-size: 15px;
+                cursor: pointer;
+                color: #fff;
+                background-color: $main-color;
+                border-radius: 100rem;
+                border: none;
+                padding: $ten-px 0.9rem;
+                transition: .2s;
+                &:hover,
+                :focus {
+                  transform: translateY(-.2rem);
+                }
+            }
         }
     }
 

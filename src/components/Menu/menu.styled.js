@@ -4,10 +4,11 @@ export const StyledMenu = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 50%;
+  height: 100%;
+  width: 205px;
   padding: 0.5rem;
   position: absolute;
-  background-color: #e5e5e5;
+  background-color: var(--background-color);
   top: 0;
   right: 0;
   transition: transform 0.3s ease-in-out;

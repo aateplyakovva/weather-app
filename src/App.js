@@ -7,6 +7,8 @@ import {Context} from './contex';
 
 import * as Api from "./apis/weatherApi";
 
+
+
 function App() {
 
   const [ state, setState ] = useState(
@@ -57,7 +59,7 @@ const getWeather = async (e) => {
           dt: data.dt,
           error: undefined
     });
-  }else {
+  } else {
       setState( 
         {
             city: undefined,
@@ -87,11 +89,11 @@ const dailyForecast = state.dailyForecast;
       hourlyForecast,
       dailyForecast, 
     }}>
-        <div>
-          <Header />
-          <Main />
-          <Footer />
-        </div>
+          <div>
+              <Header/>
+              <Main />
+              <Footer />
+          </div>
     </Context.Provider>
 
   );

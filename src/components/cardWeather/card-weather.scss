@@ -1,7 +1,7 @@
 @use "../../scss/" as *;
 
 .weather-container{
-    background-color: $card-bg;
+    background-color: var(--container-background-color);
     padding: 24pt 14pt;
     margin: auto;
     border-radius: 20px;
@@ -13,6 +13,7 @@
     }
 
     .city{
+        color: var( --font-color);
         font-weight: 600;
         font-size: 25px;
     }
@@ -20,6 +21,7 @@
         @include flex(center, flex-start);
         font-weight: 600;
         font-size: 25px;
+        color: var( --font-color);
 
         img {
             margin-right: 5px;
@@ -28,11 +30,13 @@
     .feel{
         text-transform: capitalize;
         font-weight: 600;
+        color: var( --font-color);
     }
 
     .other-data{
         border-left:3px solid $main-color;
         margin-top: 10pt;
         padding-left: 6pt;
+        color: var( --font-color);
     }
 }

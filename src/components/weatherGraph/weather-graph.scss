@@ -7,7 +7,9 @@
                 color: #4793ff;
                 font-size: 25px;
             }
-        
+        .apexcharts-text {
+            fill: var(--apexcharts-text)!important;
+        }
 }
 
 

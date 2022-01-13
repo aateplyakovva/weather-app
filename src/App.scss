@@ -8,6 +8,7 @@
   margin: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+  font-family: $font-family;
 }
 
 html{
@@ -20,6 +21,7 @@ html{
   @include mobile {
       font-size: 60%;
   }
+  background-color: var(--background-color);
 }
 
 body{

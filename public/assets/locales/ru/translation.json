@@ -1,0 +1,16 @@
+{
+    "search": "Поиск",
+    "hourly_foreacst": "Прогноз на день",
+    "weekly_foreacst": "Недельный прогноз",
+    "clouds": "Облака",
+    "cloudscls": "Облачные покровы",
+    "precipitation": "Осадки",
+    "precipitationcls": "Осадки",
+    "rain": "Дождь",
+    "raincls": "Дождь",
+    "snow": "Снег",
+    "pressure": "Давление",
+    "pressurecntr": "Датчик давления",
+    "temp": "Температура",
+    "wind": "Ветер"
+}

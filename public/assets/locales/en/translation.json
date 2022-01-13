@@ -1,0 +1,17 @@
+{
+    "search": "Search",
+    "city": "{{state.city}}",
+    "hourly_foreacst": "Hourly Forecast",
+    "weekly_foreacst": "Weekly Forecast",
+    "clouds": "Clouds",
+    "cloudscls": "Cloudscls",
+    "precipitation": "Precipitation",
+    "precipitationcls": "Precipitationcls",
+    "rain": "Rain",
+    "raincls": "Raincls",
+    "snow": "Snow",
+    "pressure": "Pressure",
+    "pressurecntr": "Pressurecntr",
+    "temp": "Temp",
+    "wind": "Wind"
+}

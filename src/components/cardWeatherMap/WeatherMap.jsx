@@ -5,8 +5,10 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-openweathermap/leaflet-openweathermap.css';
 import 'leaflet-openweathermap';
+import { useTranslation } from 'react-i18next';
 
 const WeatherMap = () => {
+        const { t } = useTranslation()
     useEffect(() => {
         const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18, attribution: 'copyright <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' });
@@ -25,17 +27,17 @@ const WeatherMap = () => {
         const map = L.map('map', { center: new L.LatLng(53.9,  27.5667), zoom: 5, layers: [osm] });
         const baseMaps = { "OSM Standard": osm };
         const overlayMaps = {
-            "Clouds": clouds, 
-            "Cloudscls": cloudscls,
-            "Precipitation": precipitation,
-            "Precipitationcls": precipitationcls,
-            "Rain": rain,
-            "Raincls": raincls,
-            "snow": snow,
-            "Pressure": pressure,
-            "Pressurecntr": pressurecntr,
-            "Temp": temp,
-            "Wind": wind
+            [t("clouds")]: clouds,
+            [t('cloudscls')]: cloudscls,
+            [t('precipitation')]: precipitation,
+            [t('precipitationcls')]: precipitationcls,
+            [t('rain')]: rain,
+            [t('raincls')]: raincls,
+            [t('snow')]: snow,
+            [t('pressure')]: pressure,
+            [t('pressurecntr')]: pressurecntr,
+            [t('temp')]: temp,
+            [t('wind')]: wind,
         };
         const layerControl = L.control.layers(baseMaps, overlayMaps,{collapsed:window.innerWidth < 768}).addTo(map);
     }, []);

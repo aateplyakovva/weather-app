@@ -7,12 +7,15 @@ import './main.scss';
 
 const Main = () => {
     return (
+      <>
         <div className="main-container">
           <CardWeather />
           <Forecast/>
           <WeatherGrapth/>
           <WeatherMap/>
         </div>
+        <div className="pr">weather app</div>
+        </>
     )
 }
 

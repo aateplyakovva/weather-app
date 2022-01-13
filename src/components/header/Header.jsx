@@ -4,10 +4,10 @@ import './header.scss';
 import Burger from '../Burger/Burger';
 import Menu from '../Menu/Menu';
 import { useOnClickOutside } from '../../hooks';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import i18next from 'i18next';
 
-const Header = ({check, change}) => {
+
+const Header = () => {
     const node = useRef(); 
     useOnClickOutside(node, () => setOpen(false));
     const [open, setOpen] = useState(false);
@@ -32,27 +32,36 @@ const Header = ({check, change}) => {
 
       }, [theme])
 
-    ////theme
-// const [darkMode, setDarkMode] = useState(false)
-
-// const darkTheme = createTheme({ 
-//   palette: { 
-//     mode: darkMode ? 'dark' : 'light'
-//   } 
-// });
+      //language
+      
+      const languages = [
+        {
+          code: 'ru',
+          name: 'Русский',
+          country_code: 'ru',
+        },
+        {
+          code: 'en',
+          name: 'English',
+          country_code: 'gb',
+        }
+      ]
 
     return(
         <div className="header-container" ref={node}>
             <div className="controls-container">
                 <SearchForm />
                 <div className="controls">
-                    <button className="change-theme" onClick={toggleTheme}>{theme === 'light' ? 'dark' : 'light'}</button>
-                     <FormControlLabel
-                        control={
-                            <Switch />
-                            }
-                            label="Russian"
-                    />                     
+                    <button className="change theme" onClick={toggleTheme}>{theme === 'light' ? 'dark' : 'light'}</button>
+                    {languages.map(({ code, name, country_code }) => (
+                  <button className="change language"
+                    onClick={() => {
+                      i18next.changeLanguage(code)
+                    }}
+                  >
+                    {name}
+                  </button>
+              ))}            
                 </div>
                 <Burger open={open} setOpen={setOpen} />
                 <Menu open={open}  setOpen={setOpen} />

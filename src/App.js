@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import './App.scss';
 import Header from './components/header/Header';
 import Main from './components/Main/Main';
-import Footer from './components/footer/Footer';
 import {Context} from './contex';
 
 import * as Api from "./apis/weatherApi";
-
 
 
 function App() {
@@ -24,9 +22,43 @@ function App() {
       visibility: undefined,
       hourlyForecast: [],
       dailyForecast: [],
-      error: undefined
+      error: undefined,
+      coords: {
+        latitude: 45,
+        longitude: 60
+      }
     }
   );
+
+  // const getCurrentLocation = () => {
+  //   if (!navigator.geolocation){
+	// 		console.log('error', 'ERROR: Geolocation is not supported by this browser');
+	// 		return;
+	// 	}
+
+  // }
+
+
+  //  React.useEffect(() => {
+
+  //   if (navigator.geolocation){
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       console.log('debug', position)
+  //       let newCoords = {
+  //         latitude: position.coords.latitude,
+  //         longitude: position.coords.longitude
+  //       }
+  //       setState({
+  //         coords: newCoords
+  //       });
+
+  //       Api.getForecast(state.coords.latitude, state.coords.longitude)
+        
+  //     })
+  //   } else {
+  //     console.log('not supported')
+  //   }
+  //  }, [])
 
 
 const getWeather = async (e) => {
@@ -92,7 +124,6 @@ const dailyForecast = state.dailyForecast;
           <div>
               <Header/>
               <Main />
-              <Footer />
           </div>
     </Context.Provider>
 

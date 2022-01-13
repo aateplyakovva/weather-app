@@ -2,11 +2,12 @@ import React, { useContext, useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
 import { Context } from '../../contex';
 import './weather-graph.scss';
+import { useTranslation } from 'react-i18next';
 
 
 
 const WeatherGrapth = () => {
-    
+    const { t } = useTranslation()
     const {dailyForecast} = useContext(Context);
 
     const [category, setCategory] = useState([])
@@ -28,7 +29,8 @@ const WeatherGrapth = () => {
 
     return(
         <div className="graph__container">
-            <h3 className="graph__title">Weekly forecast</h3>
+            
+            <h3 className="graph__title">{t("weekly_foreacst")}</h3>
             <Chart options={{
                     chart: {
                         id: 'weather-graph'

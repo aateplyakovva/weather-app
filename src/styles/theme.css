@@ -11,9 +11,6 @@
     --apexcharts-text-dark: #dbd6cd;
     --container-background-color-dark: rgb(33, 35, 36);
   
-    --font-size-title: 16px;
-    --font-size-subtitle: 12px;
-  
     --background-color: var(--background-color-light);
     --header-background-color: var(--header-background-color-light);
     --font-color: var(--font-color-light);

@@ -16,7 +16,7 @@
             flex-direction: column;
             margin-left: 2rem;
 
-            .change-theme {
+            .change {
                 font-family: $font-family;
                 font-size: 15px;
                 cursor: pointer;
@@ -26,6 +26,7 @@
                 border: none;
                 padding: $ten-px 0.9rem;
                 transition: .2s;
+                margin-bottom: $five-px;
                 &:hover,
                 :focus {
                   transform: translateY(-.2rem);

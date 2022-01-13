@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import './forecast.scss';
 import { Context } from '../../contex';
+import { useTranslation } from 'react-i18next';
 
 const Forecast = () => {
+  const { t } = useTranslation()
     const {hourlyForecast, state} = useContext(Context)
     const items = hourlyForecast.map((f, i) => {
         const image = {
@@ -34,7 +36,7 @@ const Forecast = () => {
         <div className="container">
         {state.city && 
               <div className="forecast">
-                <h3 className="forecast__title">Hourly Forecast</h3>
+                <h3 className="forecast__title">{t("hourly_foreacst")}</h3>
                 <div className="items">{items}</div>
             </div>
         } 

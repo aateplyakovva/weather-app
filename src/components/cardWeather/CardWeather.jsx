@@ -2,13 +2,15 @@ import React, { useContext } from 'react';
 import './card-weather.scss';
 import { Context } from '../../contex';
 import moment from 'moment';
+import { Draggable } from 'react-beautiful-dnd';
 
 const CardWeather = () => {
     const {state} = useContext(Context)
     return (
         <div className="container">
-            { state.city &&
-            <div className="weather-container">
+            {
+                state.city ?
+                <div className="weather-container">
                 <h3 className="day">{moment().format("MMM Do YYYY, h:mm a")} </h3>
                 <p className="city">{state.city}, {state.country}</p>
                 <div className="temp-container">
@@ -21,9 +23,13 @@ const CardWeather = () => {
                     <p>{state.pressure}hPa</p>
                     <p>{state.visibility/1000}km</p>
                 </div>
-            </div>
+
+            </div> 
+            :
+            <p>jhgfdsdfghjkl;plkjhgfd!!!!!!!!!!!!!!!</p>
             }
-            <p>{state.error}</p>
+
+
         </div>
     )
 }

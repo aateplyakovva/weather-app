@@ -13,5 +13,7 @@
     "pressure": "Pressure",
     "pressurecntr": "Pressurecntr",
     "temp": "Temp",
-    "wind": "Wind"
+    "wind": "Wind",
+    "temperature": "Temperature °C",
+    "date": "Date"
 }

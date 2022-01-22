@@ -3,10 +3,10 @@ import Chart from 'react-apexcharts';
 import { Context } from '../../contex';
 import './weather-graph.scss';
 import { useTranslation } from 'react-i18next';
+import { Draggable } from 'react-beautiful-dnd';
 
 
-
-const WeatherGrapth = () => {
+const WeatherGraph = () => {
     const { t } = useTranslation()
     const {dailyForecast} = useContext(Context);
 
@@ -28,31 +28,30 @@ const WeatherGrapth = () => {
       }, [dailyForecast]); 
 
     return(
-        <div className="graph__container">
-            
-            <h3 className="graph__title">{t("weekly_foreacst")}</h3>
-            <Chart options={{
-                    chart: {
-                        id: 'weather-graph'
-                    },
-                    xaxis: {
-                        categories: category, 
-                        title: {
-                            text: 'Date',
-                        },
-                },
-                yaxis: {
-                    title: {
-                        text: 'Temperature °C',
-                    },
-                },
-                 }} 
-                series={[{
-                    name: 'temp',
-                    data: data
-                }]} type="line" height={'349px'} />
-        </div>
+             <div className="graph__container">
+                        <h3 className="graph__title">{t("weekly_foreacst")}</h3>
+                        <Chart options={{
+                                chart: {
+                                    id: 'weather-graph'
+                                },
+                                xaxis: {
+                                    categories: category, 
+                                    title: {
+                                        text:  [t("date")],
+                                    },
+                            },
+                            yaxis: {
+                                title: {
+                                    text:  [t("temperature")],
+                                },
+                            },
+                             }} 
+                            series={[{
+                                name: 'temp',
+                                data: data
+                            }]} type="line" height={'349px'} />
+                    </div>
     )
 }
 
-export default WeatherGrapth;
+export default WeatherGraph;

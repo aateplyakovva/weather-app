@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const Forecast = () => {
   const { t } = useTranslation()
-    const {hourlyForecast, state} = useContext(Context)
+    const {hourlyForecast} = useContext(Context)
     const items = hourlyForecast.map((f, i) => {
         const image = {
           url: `http://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`,
@@ -33,14 +33,12 @@ const Forecast = () => {
       });
   
       return (
-        <div className="container">
-        {state.city && 
-              <div className="forecast">
-                <h3 className="forecast__title">{t("hourly_foreacst")}</h3>
-                <div className="items">{items}</div>
-            </div>
-        } 
-        </div>
+                <div className="container">
+                <div className="forecast">
+                  <h3 className="forecast__title">{t("hourly_foreacst")}</h3>
+                  <div className="items">{items}</div>
+              </div>
+          </div>
       );
     }
   export default Forecast;

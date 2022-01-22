@@ -2,17 +2,18 @@ import React from 'react';
 import CardWeather from '../cardWeather/CardWeather';
 import WeatherMap from '../cardWeatherMap/WeatherMap';
 import Forecast from '../forecast/Forecast';
-import WeatherGrapth from '../weatherGraph/WeatherGraph';
+import WeatherGraph from '../weatherGraph/WeatherGraph';
 import './main.scss';
 
-const Main = () => {
+const Main = () => {  
+  
     return (
-      <>
-        <div className="main-container">
-          <CardWeather />
-          <Forecast/>
-          <WeatherGrapth/>
-          <WeatherMap/>
+        <>
+            <div className="main-container">
+              <CardWeather />              
+              <Forecast/>
+              <WeatherGraph/>
+              <WeatherMap/>
         </div>
         <div className="pr">weather app</div>
         </>

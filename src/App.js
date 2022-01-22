@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import './App.scss';
 import Header from './components/header/Header';
 import Main from './components/Main/Main';
+import Clouds from './components/Clouds/Clouds';
 import {Context} from './contex';
 
 import * as Api from "./apis/weatherApi";
 
 
+
 function App() {
+  
+  const[ favorites, setFavorites ] = useState([]);
 
   const [ state, setState ] = useState(
     {
@@ -30,36 +34,26 @@ function App() {
     }
   );
 
-  // const getCurrentLocation = () => {
-  //   if (!navigator.geolocation){
-	// 		console.log('error', 'ERROR: Geolocation is not supported by this browser');
-	// 		return;
-	// 	}
+  const saveToLocalStorage = (items) => {
+		localStorage.setItem('favotites-city', JSON.stringify(items));
+	};
 
-  // }
+const addFavoriteCity = (state) => {
+  const newFavotiteList = [...favorites, state];
+  setFavorites(newFavotiteList);
+  saveToLocalStorage(newFavotiteList);
+  if (favorites.some(f => f.city === state.city && f.country === state.country)) return;
 
+}
 
-  //  React.useEffect(() => {
-
-  //   if (navigator.geolocation){
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       console.log('debug', position)
-  //       let newCoords = {
-  //         latitude: position.coords.latitude,
-  //         longitude: position.coords.longitude
-  //       }
-  //       setState({
-  //         coords: newCoords
-  //       });
-
-  //       Api.getForecast(state.coords.latitude, state.coords.longitude)
-        
-  //     })
-  //   } else {
-  //     console.log('not supported')
-  //   }
-  //  }, [])
-
+const removeFavoriteCity = (state) => {
+  const newFavotiteList = favorites.filter(
+    (favorite) => favorite.city !== state.city
+    );
+  setFavorites(newFavotiteList);
+  
+  saveToLocalStorage(newFavotiteList);
+}
 
 const getWeather = async (e) => {
   e.preventDefault();
@@ -96,6 +90,8 @@ const getWeather = async (e) => {
         {
             city: undefined,
             country: undefined,
+            lat: undefined,
+            lon: undefined,
             img: undefined,
             temp: undefined,
             feel: undefined,
@@ -114,16 +110,27 @@ const getWeather = async (e) => {
 const hourlyForecast = state.hourlyForecast;
 const dailyForecast = state.dailyForecast;
 
+
+
   return (
     <Context.Provider value={{
       getWeather,
       state, 
       hourlyForecast,
-      dailyForecast, 
+      dailyForecast,
+      addFavoriteCity,
+      removeFavoriteCity,
+      favorites
     }}>
           <div>
               <Header/>
-              <Main />
+
+              {
+                state.city ?  <Main /> 
+                :  
+                <Clouds/>
+              }
+
           </div>
     </Context.Provider>
 

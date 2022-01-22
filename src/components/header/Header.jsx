@@ -1,11 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import SearchForm from '../searchForm/SearchForm';
 import './header.scss';
 import Burger from '../Burger/Burger';
 import Menu from '../Menu/Menu';
 import { useOnClickOutside } from '../../hooks';
 import i18next from 'i18next';
-
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Context } from '../../contex';
 
 const Header = () => {
     const node = useRef(); 
@@ -47,11 +48,13 @@ const Header = () => {
         }
       ]
 
+      const {state, addFavoriteCity} = useContext(Context)
+
     return(
         <div className="header-container" ref={node}>
             <div className="controls-container">
                 <SearchForm />
-                <div className="controls">
+                <div className="controls" >
                     <button className="change theme" onClick={toggleTheme}>{theme === 'light' ? 'dark' : 'light'}</button>
                     {languages.map(({ code, name, country_code }) => (
                   <button className="change language"
@@ -61,7 +64,9 @@ const Header = () => {
                   >
                     {name}
                   </button>
-              ))}            
+
+              ))}  
+                <FavoriteIcon  title="Hyper Text Markup Language" onClick={() => addFavoriteCity([state.city, state.country])} className="favorite" fontSize="large" />   
                 </div>
                 <Burger open={open} setOpen={setOpen} />
                 <Menu open={open}  setOpen={setOpen} />

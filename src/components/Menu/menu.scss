@@ -1,0 +1,28 @@
+@use "../../scss/" as *;
+
+
+
+.container {
+
+    .title {
+        color: $main-color;
+        margin-bottom: $ten-px;
+    }
+
+    .favotite{
+        background-color: $card-bg;
+        border-radius: 5%;
+        height: 70%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 20px;
+        width: 100%;
+        padding: 0 20px;
+
+        .delete {
+            cursor: pointer;
+        }
+    }
+}

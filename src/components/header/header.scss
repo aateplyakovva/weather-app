@@ -4,17 +4,28 @@
 .header-container{
     background-color: var(--header-background-color);
     width: 100%;
+    height: 194px;
 
     .controls-container{
         max-width: 900px;
         margin: auto;
         padding: 20pt 0;
+        @media only screen and (max-width: 860px){
+            width: auto;
+        }
         @include flex(center, center);
 
         .controls{
             display: flex;
             flex-direction: column;
             margin-left: 2rem;
+            @include tablet {
+                margin-right: 4rem;
+            }
+            @media only screen and (max-width: 915px){
+                margin-right: 8rem;
+                
+            }
 
             .change {
                 font-family: $font-family;
@@ -34,7 +45,9 @@
                 &:active{
                     background-color: rgba(117, 115, 115, 0.712);
                 }
-                
+                // @include tablet {
+                //     padding: 0.3rem 0.5rem;
+                // }
             }
             .favorite {
                 color: rgb(230, 10, 10);

@@ -14,6 +14,9 @@
                 padding: $five-px $ten-px;
                 width: 100%;
                 border-radius: $five-px 0 0 $five-px;
+                @media only screen and (max-width: 915px){
+                    width: 70%;
+                }
             }
             .search-btn {
                 cursor: pointer;

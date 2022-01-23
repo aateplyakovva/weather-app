@@ -7,7 +7,13 @@
     padding: 22pt 14pt;
     width: 537px;
     color: var(--font-color);
-  
+    @media only screen and (max-width: 920px){
+      width: 537px;
+      margin: auto;
+  }
+    @include mobile {
+      width: 337px;
+  }
     &__title {
       margin-left: 15px;
       color: #4793ff;

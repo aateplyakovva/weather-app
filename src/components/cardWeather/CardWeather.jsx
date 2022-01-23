@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import './card-weather.scss';
 import { Context } from '../../contex';
 import moment from 'moment';
-import { Draggable } from 'react-beautiful-dnd';
 
 const CardWeather = () => {
     const {state} = useContext(Context)
@@ -26,7 +25,7 @@ const CardWeather = () => {
 
             </div> 
             :
-            <p>jhgfdsdfghjkl;plkjhgfd!!!!!!!!!!!!!!!</p>
+            <p>{state.error}</p>
             }
 
 

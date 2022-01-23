@@ -56,7 +56,7 @@ const Header = () => {
                 <SearchForm />
                 <div className="controls" >
                     <button className="change theme" onClick={toggleTheme}>{theme === 'light' ? 'dark' : 'light'}</button>
-                    {languages.map(({ code, name, country_code }) => (
+                    {languages.map(({ code, name }) => (
                   <button className="change language"
                     onClick={() => {
                       i18next.changeLanguage(code)

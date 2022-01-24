@@ -2,7 +2,24 @@
 
 
 
-.container {
+.menu-container {
+    height: 75%;
+    overflow-y:scroll;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+      }
+  
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        border-color: transparent;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        background-color: $main-color;
+        border-radius: 10px;
+      }
 
     .title {
         color: $main-color;
@@ -12,7 +29,7 @@
           }
     }
 
-    .favotite{
+    .favorite{
         background-color: $card-bg;
         border-radius: 5%;
         height: 70%;
@@ -23,6 +40,10 @@
         font-size: 20px;
         width: 100%;
         padding: 0 20px;
+        margin-bottom: 10px;
+
+
+       
 
 
         .delete {

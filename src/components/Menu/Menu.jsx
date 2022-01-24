@@ -6,21 +6,24 @@ import './menu.scss';
 import ClearIcon from '@mui/icons-material/Clear';
 
 const Menu = ({ open }) => {
-
-  const {favorites} = useContext(Context)
-  const {state, removeFavoriteCity} = useContext(Context)
+  const {state, removeFavoriteCity, favorites} = useContext(Context)
   const join = favorites.join(', ')
+
+
+  const item = favorites.map((f, i) => (
+    <div className="favorite" key={i}>{f}
+      <div className="delete">
+          <ClearIcon onClick={() => removeFavoriteCity(state.city)} fontSize="large"/>
+      </div>
+    </div>
+  ))
 
   return (
     <StyledMenu open={open}>
-        <div className="container">
+        <div className="menu-container">
           <h2  className="title">Favorites cities:</h2>
           {join ? 
-              <div className="favotite">{join}
-                  <div className="delete">
-                      <ClearIcon onClick={() => removeFavoriteCity(state.city)} fontSize="large"/>
-                  </div>
-              </div>
+              <div>{item}</div>
               :
               <div></div>
           }

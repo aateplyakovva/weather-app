@@ -30,7 +30,8 @@
     }
 
     .favorite{
-        background-color: $card-bg;
+        background-color: var(--container-background-color);
+        color: var( --font-color);
         border-radius: 5%;
         height: 70%;
         display: inline-flex;
@@ -38,14 +39,9 @@
         justify-content: space-between;
         font-weight: 700;
         font-size: 20px;
-        width: 100%;
+        width: 95%;
         padding: 0 20px;
         margin-bottom: 10px;
-
-
-       
-
-
         .delete {
             cursor: pointer;
         }

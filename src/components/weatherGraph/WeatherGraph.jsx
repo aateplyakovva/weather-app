@@ -1,9 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
-import { Context } from '../../contex';
+import { Context } from '../../context';
 import './weather-graph.scss';
 import { useTranslation } from 'react-i18next';
-import { Draggable } from 'react-beautiful-dnd';
 
 
 const WeatherGraph = () => {

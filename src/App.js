@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
-import './App.scss';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes  } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {auth} from "./components/actions/user";
+import {Context} from './context';
+import SignUp from "./components/authorization/SignUp";
+import SignIn from "./components/authorization/SignIn";
 import Header from './components/header/Header';
 import Main from './components/Main/Main';
 import Clouds from './components/Clouds/Clouds';
-import {Context} from './contex';
-
 import * as Api from "./apis/weatherApi";
+
+import './App.scss';
 
 
 
 function App() {
-  
+  const isAuth = useSelector(state => state.user.isAuth)
+  const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    dispatch(auth())
+}, [])
+
   const[ favorites, setFavorites ] = useState([]);
 
   const [ state, setState ] = useState(
@@ -27,10 +39,6 @@ function App() {
       hourlyForecast: [],
       dailyForecast: [],
       error: undefined,
-      coords: {
-        latitude: 45,
-        longitude: 60
-      }
     }
   );
 
@@ -38,11 +46,18 @@ function App() {
 		localStorage.setItem('favotites-city', JSON.stringify(items));
 	};
 
-const addFavoriteCity = (state) => {
-  const newFavotiteList = [...favorites, state];
-  setFavorites(newFavotiteList);
-  saveToLocalStorage(newFavotiteList);
-  if (favorites.some(f => f.city === state.city && f.country === state.country)) return;
+  const addFavoriteCity = (state) => {
+  const included = favorites.some(([city, country]) => {
+    const [stateCity, stateCountry] = state;
+    return (
+      city.toLowerCase() === stateCity.toLowerCase() &&
+      country.toLowerCase() === stateCountry.toLowerCase()
+    );
+  });
+
+    if (!included) {
+      setFavorites((favorites) => [...favorites, state]);
+  }
 
 }
 
@@ -50,6 +65,7 @@ const removeFavoriteCity = (state) => {
   const newFavotiteList = favorites.filter(
     (favorite) => favorite.city !== state.city
     );
+
   setFavorites(newFavotiteList);
   
   saveToLocalStorage(newFavotiteList);
@@ -113,26 +129,33 @@ const dailyForecast = state.dailyForecast;
 
 
   return (
-    <Context.Provider value={{
-      getWeather,
-      state, 
-      hourlyForecast,
-      dailyForecast,
-      addFavoriteCity,
-      removeFavoriteCity,
-      favorites
-    }}>
-          <div>
-              <Header/>
-
-              {
-                state.city ?  <Main /> 
-                :  
-                <Clouds/>
-              }
-
-          </div>
-    </Context.Provider>
+    <BrowserRouter>
+        <Context.Provider value={{
+            getWeather,
+            state, 
+            hourlyForecast,
+            dailyForecast,
+            addFavoriteCity,
+            removeFavoriteCity,
+            favorites, 
+          }}>
+            <div>                            
+                <Header/>
+                {
+                  !isAuth &&
+                    <Routes>
+                      <Route path="/registration" element={<SignUp/>}/>
+                      <Route path="/login" element={<SignIn/>}/>
+                  </Routes>
+                }
+                  {
+                    state.city  ?  <Main /> 
+                    :  
+                    <Clouds/>
+                  }
+            </div>
+        </Context.Provider>
+    </BrowserRouter>
 
   );
 }

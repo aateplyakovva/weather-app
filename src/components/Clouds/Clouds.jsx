@@ -1,10 +1,13 @@
 import React from 'react';
 import './clouds.scss';
+import { useTranslation } from 'react-i18next';
 
 const Clouds = () => {
+    const { t } = useTranslation()
+
     return (
         <div className="clouds">
-            <h3>Check the weather in your city!</h3>
+            <h3>{t("title")}</h3>
             <div className="cloud x1"></div>
             <div className="cloud x2"></div>
             <div className="cloud x3"></div>

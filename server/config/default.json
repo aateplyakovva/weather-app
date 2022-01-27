@@ -1,0 +1,5 @@
+{
+    "serverPort": 5000,
+    "dbUrl": "mongodb+srv://ateplyakovva:Ann1014327@weather-app.vcc0f.mongodb.net/weather-app?retryWrites=true&w=majority",
+    "secretKey": "my-secret-key"
+}

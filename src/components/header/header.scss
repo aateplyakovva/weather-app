@@ -20,11 +20,11 @@
             flex-direction: column;
             margin-left: 2rem;
             @include tablet {
-                margin-right: 4rem;
+                margin-right: 2rem;
             }
-            @media only screen and (max-width: 915px){
-                margin-right: 8rem;
-                
+
+            @include mobile {
+                margin-right: 3rem;
             }
 
             .change {
@@ -45,10 +45,9 @@
                 &:active{
                     background-color: rgba(117, 115, 115, 0.712);
                 }
-                // @include tablet {
-                //     padding: 0.3rem 0.5rem;
-                // }
+
             }
+
             .favorite {
                 color: rgb(230, 10, 10);
                 cursor: pointer;
@@ -59,6 +58,46 @@
                 }
             }
         }
+        .authorization {
+            display: flex;
+            flex-direction: row;
+            @include tablet {
+                flex-direction: column;
+                margin-right: 9rem;
+            }
+            .change {
+                font-family: $font-family;
+                font-size: 15px;
+                cursor: pointer;
+                color: #fff;
+                background-color: $main-color;
+                border-radius: 100rem;
+                border: none;
+                padding: $ten-px 0.9rem;
+                transition: .2s;
+                margin-bottom: $five-px;
+                &:hover,
+                :focus {
+                  transform: translateY(-.2rem);
+                }
+                &:active{
+                    background-color: rgba(117, 115, 115, 0.712);
+                }
+                &.auth {
+                    margin-left: 5px;
+                }
+                &.reg {
+                    margin-left: 5px;
+                }
+                a{
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+            }
+        }
+
+
     }
 
 }

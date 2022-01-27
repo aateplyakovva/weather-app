@@ -15,5 +15,11 @@
     "temp": "Temp",
     "wind": "Wind",
     "temperature": "Temperature °C",
-    "date": "Date"
+    "date": "Date",
+    "title": "Check the weather in your city!",
+    "welcome": "Welcome",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "username": "Username",
+    "password": "Password"
 }

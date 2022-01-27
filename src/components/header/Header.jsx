@@ -6,9 +6,14 @@ import Menu from '../Menu/Menu';
 import { useOnClickOutside } from '../../hooks';
 import i18next from 'i18next';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Context } from '../../contex';
+import { Context } from '../../context';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {logout} from "../reducers/userReducer";
+
 
 const Header = () => {
+    const isAuth = useSelector(state => state.user.isAuth)
     const node = useRef(); 
     useOnClickOutside(node, () => setOpen(false));
     const [open, setOpen] = useState(false);
@@ -48,7 +53,9 @@ const Header = () => {
         }
       ]
 
-      const {state, addFavoriteCity} = useContext(Context)
+    const {state, addFavoriteCity} = useContext(Context)
+
+    const dispatch = useDispatch()
 
     return(
         <div className="header-container" ref={node}>
@@ -56,17 +63,26 @@ const Header = () => {
                 <SearchForm />
                 <div className="controls" >
                     <button className="change theme" onClick={toggleTheme}>{theme === 'light' ? 'dark' : 'light'}</button>
-                    {languages.map(({ code, name }) => (
-                  <button className="change language"
-                    onClick={() => {
+                    {languages.map(({ code, name, i }) => (
+                    <button key={i} className="change language"
+                      onClick={() => {
                       i18next.changeLanguage(code)
                     }}
                   >
                     {name}
-                  </button>
+                    </button>
 
-              ))}  
-                <FavoriteIcon  title="Hyper Text Markup Language" onClick={() => addFavoriteCity([state.city, state.country])} className="favorite" fontSize="large" />   
+                  ))}
+                  {state.city ?  
+                  <FavoriteIcon onClick={() => addFavoriteCity([state.city, state.country])} className="favorite" fontSize="large" />
+                  : <div></div>   
+                    }  
+
+                </div>
+                <div className="authorization">
+                  {!isAuth && <button className="change auth"><Link to="/login">SignIn</Link></button>}
+                  {!isAuth && <button className="change reg"><Link to="/registration">SignUp</Link></button>}
+                  {isAuth && <button className="change reg" onClick={() => dispatch(logout())}>Exit </button>}
                 </div>
                 <Burger open={open} setOpen={setOpen} />
                 <Menu open={open}  setOpen={setOpen} />

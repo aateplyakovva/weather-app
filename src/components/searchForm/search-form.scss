@@ -17,6 +17,9 @@
                 @media only screen and (max-width: 915px){
                     width: 70%;
                 }
+                @include tablet {
+                    width: 65%;
+                }
             }
             .search-btn {
                 cursor: pointer;

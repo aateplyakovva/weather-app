@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './card-weather.scss';
-import { Context } from '../../contex';
+import { Context } from '../../context';
 import moment from 'moment';
 
 const CardWeather = () => {

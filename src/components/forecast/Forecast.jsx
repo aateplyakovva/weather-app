@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './forecast.scss';
-import { Context } from '../../contex';
+import { Context } from '../../context';
 import { useTranslation } from 'react-i18next';
 
 const Forecast = () => {

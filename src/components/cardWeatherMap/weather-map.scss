@@ -1,0 +1,13 @@
+@use "../../scss/" as *;
+
+.weathermap-container{
+    border-radius: 20px;
+    @media only screen and (max-width: 920px){
+        width: 537px;
+        margin: auto;
+    }
+
+    @include mobile {
+        width: 337px;
+    }
+}

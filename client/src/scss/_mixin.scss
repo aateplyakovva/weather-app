@@ -1,0 +1,43 @@
+@mixin flex ($align-item, $justify-content){
+    display: flex;
+    align-items: $align-item;
+    justify-content: $justify-content;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin animate($name, $duration, $direction, $fill-mode) {
+	-webkit-animation-duration: $duration;
+	   -moz-animation-duration: $duration;
+	     -o-animation-duration: $duration;
+		    animation-duration: $duration;
+
+	-webkit-animation-name: $name;
+	   -moz-animation-name: $name;
+	     -o-animation-name: $name;
+	        animation-name: $name;
+
+	-webkit-animation-direction: $direction;
+	   -moz-animation-direction: $direction;
+	     -o-animation-direction: $direction;
+		    animation-direction: $direction;
+
+    -webkit-animation-direction: $fill-mode;
+        -moz-animation-direction: $fill-mode;
+            -o-animation-direction: $fill-mode;
+                animation-direction: $fill-mode;
+
+}

@@ -1,0 +1,48 @@
+@use "../../scss/" as *;
+
+.weather-container{
+    background-color: var(--container-background-color);
+    padding: 24pt 14pt;
+    border-radius: 20px;
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    @media only screen and (max-width: 920px){
+        width: 537px;
+        margin: auto;
+    }
+    @include mobile {
+        width: 337px;
+    }
+    
+    .day{
+        color: #4793ff;
+        font-size: 25px;
+    }
+
+    .city{
+        color: var( --font-color);
+        font-weight: 600;
+        font-size: 25px;
+    }
+    .temp-container{
+        @include flex(center, flex-start);
+        font-weight: 600;
+        font-size: 25px;
+        color: var( --font-color);
+
+        img {
+            margin-right: 5px;
+        }
+    }
+    .feel{
+        text-transform: capitalize;
+        font-weight: 600;
+        color: var( --font-color);
+    }
+
+    .other-data{
+        border-left:3px solid $main-color;
+        margin-top: 10pt;
+        padding-left: 6pt;
+        color: var( --font-color);
+    }
+}

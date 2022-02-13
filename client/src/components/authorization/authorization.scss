@@ -1,4 +1,4 @@
-@use "../../scss/" as *;
+@use "../../scss/"as *;
 
 .auth-container {
 	max-width: 600px;
@@ -6,7 +6,8 @@
 	padding: 80px 0;
 	height: 400px;
 	text-align: center;
-	
+	min-height: 100vh;
+
 	h1 {
 		font-size: 40px;
 		transition-duration: 1s;
@@ -14,7 +15,8 @@
 		font-weight: 500;
 		color: $main-color;
 	}
-    button{
+
+	button {
 		appearance: none;
 		outline: 0;
 		background-color: white;
@@ -26,12 +28,11 @@
 		cursor: pointer;
 		font-size: 18px;
 		transition-duration: 0.25s;
-        transition: 3s linear;
-		
-		&:hover{
+		transition: 3s linear;
+
+		&:hover {
 			background-color: $main-color;
-            transition: 2s;
+			transition: 2s;
 		}
 	}
 }
-

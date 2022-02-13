@@ -1,24 +1,27 @@
-@use "../../scss/" as *;
+@use "../../scss/"as *;
 
 
-.header-container{
+.header-container {
     background-color: var(--header-background-color);
     width: 100%;
     height: 194px;
 
-    .controls-container{
+    .controls-container {
         max-width: 900px;
         margin: auto;
         padding: 20pt 0;
-        @media only screen and (max-width: 860px){
+
+        @media only screen and (max-width: 860px) {
             width: auto;
         }
+
         @include flex(center, center);
 
-        .controls{
+        .controls {
             display: flex;
             flex-direction: column;
             margin-left: 2rem;
+
             @include tablet {
                 margin-right: 2rem;
             }
@@ -38,11 +41,13 @@
                 padding: $ten-px 0.9rem;
                 transition: .2s;
                 margin-bottom: $five-px;
+
                 &:hover,
                 :focus {
-                  transform: translateY(-.2rem);
+                    transform: translateY(-.2rem);
                 }
-                &:active{
+
+                &:active {
                     background-color: rgba(117, 115, 115, 0.712);
                 }
 
@@ -52,19 +57,23 @@
                 color: rgb(230, 10, 10);
                 cursor: pointer;
                 width: unset;
+
                 &:hover,
                 :focus {
-                  transform: translateY(-.2rem);
+                    transform: translateY(-.2rem);
                 }
             }
         }
+
         .authorization {
             display: flex;
             flex-direction: row;
+
             @include tablet {
                 flex-direction: column;
                 margin-right: 9rem;
             }
+
             .change {
                 font-family: $font-family;
                 font-size: 15px;
@@ -76,20 +85,25 @@
                 padding: $ten-px 0.9rem;
                 transition: .2s;
                 margin-bottom: $five-px;
+
                 &:hover,
                 :focus {
-                  transform: translateY(-.2rem);
+                    transform: translateY(-.2rem);
                 }
-                &:active{
+
+                &:active {
                     background-color: rgba(117, 115, 115, 0.712);
                 }
+
                 &.auth {
                     margin-left: 5px;
                 }
+
                 &.reg {
                     margin-left: 5px;
                 }
-                a{
+
+                a {
                     text-decoration: none;
                     color: #fff;
                 }

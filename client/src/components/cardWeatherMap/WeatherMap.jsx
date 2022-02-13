@@ -1,11 +1,12 @@
 import React, { useEffect }  from 'react';
-import './weather-map.scss';
-import {API_KEY} from '../../apis/config';
+import {API_KEY} from './../../apis/config';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-openweathermap/leaflet-openweathermap.css';
 import 'leaflet-openweathermap';
 import { useTranslation } from 'react-i18next';
+
+import './weather-map.scss';
 
 const WeatherMap = () => {
         const { t } = useTranslation();

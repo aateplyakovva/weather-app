@@ -1,74 +1,77 @@
-@use "../../scss/" as *;
+@use "../../scss/"as *;
 
 .forecast {
-    background-color: var(--container-background-color);
-    border-radius: 20px;
-    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
-    padding: 22pt 14pt;
+  background-color: var(--container-background-color);
+  border-radius: 20px;
+  box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  padding: 22pt 14pt;
+  width: 537px;
+  color: var(--font-color);
+
+  @media only screen and (max-width: 920px) {
     width: 537px;
-    color: var(--font-color);
-    @media only screen and (max-width: 920px){
-      width: 537px;
-      margin: auto;
+    margin: auto;
   }
-    @include mobile {
-      width: 337px;
+
+  @include mobile {
+    width: 337px;
   }
-    &__title {
-      margin-left: 15px;
-      color: #4793ff;
-      font-size: 25px;
+
+  &__title {
+    margin-left: 15px;
+    color: #4793ff;
+    font-size: 25px;
+  }
+
+  .items {
+
+    display: flex;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      width: 7px;
     }
-  
-     .items {
 
-      display: flex;
-      overflow-x:scroll;
-
-      &::-webkit-scrollbar {
-        width: 7px;
-      }
-  
-      &::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
-        border-color: transparent;
-      }
-  
-      &::-webkit-scrollbar-thumb {
-        background-color: #f3f3f3;
-        border-radius: 10px;
-      }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      border-color: transparent;
     }
-  
-    &-item {
 
-      display: flex;
-      border-right: 1px solid #eaeaea;
-      padding: 15px;
-      flex-direction: column;
-      align-items: center;
-
-      &:last-child{
-        border-right: none;
-      }
-  
-      &__time,
-      &__temp,
-      &__description {
-        margin: 2px auto;
-      }
-  
-      &__time, &__description {
-        font-weight: 400;
-        color: var( --font-color);
-        text-align: center;
-      }
-  
-      &__temp {
-        font-weight: 600;
-        color: var( --font-color);
-      }
+    &::-webkit-scrollbar-thumb {
+      background-color: #f3f3f3;
+      border-radius: 10px;
     }
   }
-  
+
+  &-item {
+
+    display: flex;
+    border-right: 1px solid #eaeaea;
+    padding: 15px;
+    flex-direction: column;
+    align-items: center;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &__time,
+    &__temp,
+    &__description {
+      margin: 2px auto;
+    }
+
+    &__time,
+    &__description {
+      font-weight: 400;
+      color: var(--font-color);
+      text-align: center;
+    }
+
+    &__temp {
+      font-weight: 600;
+      color: var(--font-color);
+    }
+  }
+}

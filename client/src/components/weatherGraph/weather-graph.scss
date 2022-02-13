@@ -1,22 +1,23 @@
-@use "../../scss/" as *;
+@use "../../scss/"as *;
 
 
-    .graph__container {
-        @media only screen and (max-width: 920px){
-            width: 537px;
-            margin: auto;
-        }
-        @include mobile {
-            width: 337px;
-        }
-          .graph__title {
-                margin-left: 15px;
-                color: #4793ff;
-                font-size: 25px;
-            }
-        .apexcharts-text {
-            fill: var(--apexcharts-text)!important;
-        }
+.graph__container {
+    @media only screen and (max-width: 920px) {
+        width: 537px;
+        margin: auto;
+    }
+
+    @include mobile {
+        width: 337px;
+    }
+
+    .graph__title {
+        margin-left: 15px;
+        color: #4793ff;
+        font-size: 25px;
+    }
+
+    .apexcharts-text {
+        fill: var(--apexcharts-text) !important;
+    }
 }
-
-

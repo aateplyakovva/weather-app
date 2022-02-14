@@ -21,5 +21,6 @@
     "signUp": "Sign Up",
     "signIn": "Sign In",
     "username": "Username",
-    "password": "Password"
+    "password": "Password",
+    "favorites": "Favorites cities:"
 }

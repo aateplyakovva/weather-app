@@ -14,8 +14,8 @@ import SignUp from './components/authorization/SignUp';
 
 import './App.scss';
 
-
 function App() {
+  
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
 

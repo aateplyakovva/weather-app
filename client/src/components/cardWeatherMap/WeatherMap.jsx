@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import './weather-map.scss';
 
 const WeatherMap = () => {
-        const { t } = useTranslation();
+    const { t } = useTranslation();
 
     useEffect(() => {
         const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -45,10 +45,9 @@ const WeatherMap = () => {
     }, []);
     
     return(
-
-                <div className="weathermap-container"> 
-                <div id="map" style={{height: '260pt', borderRadius:'20px'}} className="map-weather"></div>
-               </div> 
+        <div className="weathermap-container"> 
+            <div id="map" style={{height: '260pt', borderRadius:'20px'}} className="map-weather"></div>
+        </div> 
 
     )
 }

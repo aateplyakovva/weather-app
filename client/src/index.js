@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { initReactI18next } from 'react-i18next';
 import { Provider } from 'react-redux';
+import HttpApi from 'i18next-http-backend';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 import { store } from './components/reducers';
 import App from './App';
-import HttpApi from 'i18next-http-backend';
 
 import './styles/theme.css';
 

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { bool } from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import ClearIcon from '@mui/icons-material/Clear';
 
 import { Context } from '../../context';
@@ -8,6 +9,7 @@ import { StyledMenu } from './menu.styled';
 import './menu.scss';
 
 const Menu = ({ open }) => {
+  const { t } = useTranslation();
   const { state, removeFavoriteCity, favorites } = useContext(Context);
 
   const item = favorites.map((f, i) => (
@@ -25,7 +27,7 @@ const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
       <div className="menu-container">
-        <h2 className="title">Favorites cities:</h2>
+        <h2 className="title">{t('favorites')}</h2>
         {item && <div>{item}</div>}
       </div>
     </StyledMenu>
